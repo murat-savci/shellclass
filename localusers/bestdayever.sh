@@ -3,17 +3,20 @@
 
 # Create a variable with user's name
 myname="Murat"
-my_username="savcimu" 
+my_username="savcimu"
+_username=$(whoami)
 
 # Get username logged in
 # USERNAME and USER variables hold current user name but it is not user's real name, 
 # it is the name of current account you logged in.
+#
 
-USER_NAME=$(id -un)
+echo "active username = $_username"
+echo "my username = $my_username"
 
-if [[ $USER_NAME -eq $my_username ]]
+if [[ ${_username} == ${my_username} ]]
 then
-    echo 'Good morning $myname'
+    echo "Good morning ${myname}"
 else
-    echo 'Good morning ${USERNAME}'
+    echo "Good morning guest!"
 fi
