@@ -3,6 +3,8 @@
 # This code checks the optional paramaters name and compliment
 # if they exist then some info is printed.
 
+# Let's check if the account is admin or not.
+
 # positional parameters
 name=$1
 compliment=$2
@@ -12,12 +14,24 @@ _username=$(whoami)
 _date=$(date)
 _cdir=$(pwd)
 newline=$'\n'
+_account_id=$(id -u)
+_account=$(id -un)
 
 # echo $_username
 # echo $_date
 # echo $_cdir
 
 clear
+
+if [[ $_account_id -eq 0 ]]
+then
+    echo "This is root account"
+    sleep 1
+    echo "Welcome root!"
+else
+    echo "Welcome ${_account}"
+fi
+
 if [[ $# -eq 0 ]]
 then
     echo "No arguments supplied"
