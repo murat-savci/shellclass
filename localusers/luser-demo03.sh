@@ -7,7 +7,8 @@
 # In Bash, -eq is used for numeric comparison, while == is used for string comparison. 
 # Using -eq for string comparison will result in an error.
 
-user_id=$(id -u)
+# user_id=$(id -u)
+user_id=$UID
 username=$(id -un)
 
 # Display username
